@@ -1,6 +1,6 @@
 let box = document.querySelectorAll('.boxes');
 
-function getColor() {
+function generateRandomcolor() {
   let character = [
     '0',
     '1',
@@ -30,7 +30,7 @@ function getColor() {
 
 function handleColor() {
   box.forEach((elc) => {
-    elc.style.backgroundColor = getColor();
+    elc.style.backgroundColor = generateRandomcolor();
   });
 }
 box.forEach((elc) => {
