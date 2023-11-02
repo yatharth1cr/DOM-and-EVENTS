@@ -22,7 +22,7 @@ function generateRandomcolor() {
   ];
   let code = '#';
   for (let i = 0; i < 6; i++) {
-    let color = Math.floor(Math.random() * 16);
+    let color = Math.floor(Math.random() * characters.length);
     code = code + characters[color];
   }
   return code;
