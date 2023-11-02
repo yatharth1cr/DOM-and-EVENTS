@@ -1,3 +1,4 @@
+// -----Without Event Delegation-----
 let blockWithout = document.querySelectorAll('.first li');
 
 function getNum(smallboxes) {
@@ -10,6 +11,17 @@ blockWithout.forEach((smallboxes) =>
     getNum(smallboxes);
     setTimeout(function () {
       smallboxes.innerText = '';
-    }, '5000');
+    }, 5000);
   })
 );
+
+// -----With Event Delegation-----
+let blockWith = document.querySelector('.second');
+
+blockWith.addEventListener('click', function (event) {
+  let num = Math.floor(Math.random() * 13);
+  event.target.innerText = num;
+  setTimeout(function () {
+    event.target.innerText = '';
+  }, 5000);
+});
