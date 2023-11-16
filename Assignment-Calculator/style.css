@@ -1,0 +1,214 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* general */
+
+body {
+  font-family: sans-serif;
+  font-size: 36px;
+  background-color: black;
+}
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex22 {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+}
+
+h1 {
+  font-size: 80px;
+  padding: 3rem;
+  color: white;
+  text-align: center;
+}
+
+.result {
+  margin: 5px;
+  padding: 30px;
+  text-align: right;
+  background-color: white;
+  border-radius: 10px;
+}
+
+p {
+  color: black;
+  font-size: 66px;
+}
+.operation {
+  background-color: #ff9400;
+  color: white;
+  width: 100%;
+  font-size: 46px;
+  font-weight: 600;
+  margin: 9px;
+  height: 100px;
+  border-radius: 10px;
+  border: none;
+}
+
+.num {
+  background-color: #333333;
+  width: 30%;
+  color: white;
+  height: 100px;
+  font-size: 48px;
+  font-weight: 600;
+  margin: 6px;
+  border: none;
+  border-radius: 10px;
+}
+
+.input {
+  width: 74%;
+}
+
+.clear {
+  color: black;
+  background-color: #a5a5a5;
+}
+
+.equal {
+  background-color: #ff9400;
+  border: none;
+  width: 23.7%;
+  padding: 0px 62px;
+  height: 430px;
+  border-radius: 10px;
+  font-size: 70px;
+}
