@@ -1,2 +1,2 @@
-Assignment-DiscoGrid
-Assignment-RandomColorGenerator
+1. Assignment-DiscoGrid
+2. Assignment-RandomColorGenerator
