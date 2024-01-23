@@ -16,7 +16,6 @@ function appendToDisplay(ev) {
     p.innerText += ev;
   }
 }
-
 // event on equal
 equal.addEventListener('click', function () {
   p.innerText = eval(p.innerText);
