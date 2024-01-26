@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- title of the page  -->
+    <title>Form page</title>
+
+    <!-- link stylesheet  -->
+    <link rel="stylesheet" href="./form.css" />
+  </head>
+
+  <body>
+    <!-- header  -->
+    <header>
+      <p id="h1">A Simple Form</p>
+    </header>
+
+    <!-- form  -->
+    <form class="container">
+      <!-- name input  -->
+      <div class="flex">
+        <label for="name">Your Name</label>
+        <input type="text" name="name" id="name" placeholder="xyz" />
+      </div>
+
+      <!-- email input -->
+      <div class="flex">
+        <label for="email">Your Email</label>
+        <input
+          type="text"
+          name="email"
+          id="email"
+          placeholder="xyz@gmail.com"
+        />
+      </div>
+
+      <!-- wht do u love -->
+      <div>
+        <label for="love">What do you love?</label>
+        <select name="love" id="love">
+          <option value="movies">Movies</option>
+          <option value="series">Series</option>
+          <option value="others">Others</option>
+        </select>
+      </div>
+      <!-- choose a color -->
+      <div>
+        <label for="color">Choose a color</label>
+        <input
+          style="padding: 2px"
+          type="color"
+          id="color"
+          name="color"
+          value="#f08080"
+        />
+      </div>
+
+      <!-- rating -->
+      <div class="flex">
+        <label for="rate">Rate the UI out of 10</label>
+        <input
+          type="range"
+          min="0"
+          max="10"
+          name="rating"
+          value="7"
+          id="rating"
+        />
+      </div>
+
+      <!-- book genre you love  -->
+      <div class="radio">
+        <label for="genre">Book genre you love?</label>
+        <div>
+          <input
+            type="radio"
+            id="fiction"
+            name="genre"
+            value="fiction"
+            checked
+          />
+          <label for="fiction">Fiction</label>
+        </div>
+
+        <div>
+          <input
+            type="radio"
+            id="non-fiction"
+            name="genre"
+            value="non-fiction"
+          />
+          <label for="non-fiction">Non Fiction</label>
+        </div>
+
+        <div>
+          <input type="radio" id="adventure" name="genre" value="adventure" />
+          <label for="adventure">Adventure</label>
+        </div>
+      </div>
+
+      <!-- the term agree part  -->
+      <div style="display: inline-block">
+        <input type="checkbox" id="terms" name="terms" />
+        <label for="terms">I agree to terms</label>
+      </div>
+
+      <!-- submit button  -->
+      <button class="btn" type="submit">Submit</button>
+    </form>
+
+    <article class="close">
+      <button class="btn" id="close-btn">close</button>
+    </article>
+    <!-- link js file -->
+    <script src="./form.js"></script>
+  </body>
+</html>
