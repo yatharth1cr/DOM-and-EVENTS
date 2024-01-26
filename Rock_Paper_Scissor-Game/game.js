@@ -23,7 +23,7 @@ function getresult(user, computer) {
   } else if (user.name === computer.beats) {
     winner.innerText = `👑🎉🥳You Won👑🎉🥳`;
   } else {
-    winner.innerText = `❌👎You Lost❌👎`;
+    winner.innerText = `❌👎Better luck next time❌👎`;
   }
 }
 
