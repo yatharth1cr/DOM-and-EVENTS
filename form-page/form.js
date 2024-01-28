@@ -1,45 +1,17 @@
 let form = document.querySelector('form');
+
+// selecting;
 let result = document.querySelector('article');
-
-// function does contain a number
-function doesContainANumber(string) {
-  return string.split('').some((e) => Number(e));
-}
-
-// declared an empty string
-let userEror = '';
-
-// handle submit
-function handleInput(event) {
-  let nameElm = event.target.elements.name;
-
-  // selecting the parentelm of nameElm
-  let parentElm = document.querySelector('#name');
-  if (nameElm.value === '') {
-    userEror = "Can't be empty";
-    parentElm.classList.add('error');
-  } else if (nameElm.value.length < 5) {
-    userEror = "Can't be less than 5 Character";
-    parentElm.classList.add('error');
-  } else if (!doesContainANumber(nameElm.value)) {
-    userEror = 'Must contain atleast a number';
-    parentElm.classList.add('error');
-  } else {
-    userEror = '';
-    parentElm.classList.remove('error');
-    parentElm.classList.add('success');
-  }
-
-  nameElm.nextElementSibling.innerText = userEror;
-}
 
 // declared an empty object
 let userInfo = {};
 
-// Function handleUserInfo
-function handleUserInfo(event) {
+// event on form
+form.addEventListener('submit', (event) => {
+  //to remove(refreshing the page)the default nature of submit
+  event.preventDefault();
 
-  // storing the values with creating key in and storing it into object userInfo
+  //storing the values with creating key in and storing it into object userInfo
   userInfo.name = form.elements.name.value;
   userInfo.email = form.elements.email.value;
   userInfo.love = form.elements.love.value;
@@ -47,8 +19,22 @@ function handleUserInfo(event) {
   userInfo.rating = form.elements.rating.value;
   userInfo.genre = form.elements.genre.value;
   userInfo.terms = form.elements.terms.checked;
-  // console.log(userInfo);
-}
+
+  //call the createUI function
+  createUI(userInfo);
+
+  //to disappear the form
+  form.style.display = 'none';
+
+  //to show the card
+  result.style.display = 'block';
+
+  // event on close btn
+  let closeBtn = document.querySelector('#close-btn');
+  closeBtn.addEventListener('click', () => {
+    location.reload();
+  });
+});
 
 function createUI() {
   let div = document.createElement('div');
@@ -77,7 +63,6 @@ function createUI() {
   } else {
     terms.innerText = '❌Not Agree with Term & Condition❌';
   }
-
   // append all the elements in a div
   div.append(name, email, love, color, rating, genre, terms);
 
@@ -88,29 +73,4 @@ function createUI() {
   // to change the main heading
   let heading = document.querySelector('#h1');
   heading.innerText = '👑🎊INFORMATION🎊👑';
-
-  // to disappear the form
-  form.style.display = 'none';
-
-  // to show the card
-  result.style.display = 'block';
-
-  // event on close btn
-  let closeBtn = document.querySelector('#close-btn');
-  closeBtn.addEventListener('click', () => {
-    location.reload();
-  });
 }
-
-function handleCall(event) {
-  event.preventDefault();
-
-  handleInput(event);
-
-  handleUserInfo();
-
-  createUI();
-}
-
-// event on form
-form.addEventListener('submit', handleCall);
