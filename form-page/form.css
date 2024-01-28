@@ -7,6 +7,7 @@ body {
 .flex {
   display: flex;
   flex-direction: column;
+  margin-bottom: 1rem;
 }
 
 .container {
@@ -27,14 +28,14 @@ select {
 }
 
 form {
-  background-color: antiquewhite;
+  background-color: lightgray;
   padding: 50px;
   border: 10px solid crimson;
 }
 
 input {
   padding: 0.5rem;
-  margin-bottom: 1rem;
+  border: none;
 }
 .radio div input {
   margin-bottom: 0;
@@ -64,4 +65,22 @@ h1 {
 }
 h2 {
   font-weight: bolder;
+}
+#rating {
+  padding: 0;
+}
+
+input:required {
+  background-color: rgba(226, 142, 142, 0.2);
+}
+
+.success {
+  border: 3px solid green;
+  border-radius: 5px;
+  background-color: rgb(114, 201, 147, 0.2);
+}
+
+.error {
+  background-color: rgb(221, 177, 185);
+  border: 3px dashed rgb(243, 83, 115);
 }

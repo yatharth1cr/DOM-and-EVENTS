@@ -22,17 +22,27 @@
       <!-- name input  -->
       <div class="flex">
         <label for="name">Your Name</label>
-        <input type="text" name="name" id="name" placeholder="xyz" />
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="xyz"
+          minlength="5"
+          maxlength="15"
+          required
+        />
+        <small></small>
       </div>
 
       <!-- email input -->
       <div class="flex">
         <label for="email">Your Email</label>
         <input
-          type="text"
+          type="email"
           name="email"
           id="email"
           placeholder="xyz@gmail.com"
+          required
         />
       </div>
 
