@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- title of the page -->
+    <title>Document</title>
+
+    <!-- link stylesheet  -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- section  -->
+    <section>
+      <!-- form  -->
+      <div class="container">
+        <form>
+          <header>
+            <h1>FORM</h1>
+          </header>
+          <!-- username input  -->
+          <div>
+            <label for="username">Enter Your Username:</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Username"
+              required
+            />
+            <small></small>
+          </div>
+
+          <!-- name input  -->
+          <div>
+            <label for="name">Enter your name:</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Name"
+              required
+              minlength="4"
+            />
+            <small></small>
+          </div>
+
+          <!-- Email input  -->
+          <div>
+            <label for="email">Enter Your email:-</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="xyz@gmail.com"
+              required
+              autocomplete="username"
+            />
+            <small></small>
+          </div>
+
+          <!-- phonenumber input  -->
+          <div>
+            <label for="phoneNumber">Enter Your phone number:- </label>
+            <input
+              type="tel"
+              id="phoneNumber"
+              name="phoneNumber"
+              placeholder="Enter Your phone number"
+              min="9999999"
+              max="9999999999"
+              required
+              r
+            />
+            <small></small>
+          </div>
+
+          <!-- Enter password input -->
+          <div>
+            <label for="password">Create a password:-</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter password"
+              autocomplete="new-password"
+              required
+              minlength="8"
+              maxlength="12"
+              onclick="togglePasswordVisibility()"
+            />
+            <small></small>
+          </div>
+
+          <!-- Re-enter password input -->
+          <div>
+            <label for="confirmPassword">Confirm password</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              placeholder="Confirm password"
+              required
+              autocomplete="new-password"
+            />
+            <small></small>
+          </div>
+          <div>
+            <small id="successful"></small>
+            <button class="btn">Submit</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- link js file in script tag -->
+    <script src="index.js"></script>
+  </body>
+</html>
