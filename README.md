@@ -7,3 +7,4 @@
 7. Assignment-Rock_Paper_Scissor-Game
 8. Assignment-Form-page-handlingInputElement
 9. Assignment-Validation-Form
+10. Assignment-Movie-watchlist
