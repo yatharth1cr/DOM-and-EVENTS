@@ -1,16 +1,22 @@
 // Targeting the root element where the todos will append
-let root = document.querySelector('ul');
+const root = document.querySelector('.root');
 
 // Targeting the input element where the input value
-let input = document.querySelector('#text');
+const input = document.querySelector('#text');
 
 // Targeting the input element where the input value
-let submit = document.querySelector('button');
+const submit = document.querySelector('button');
 
+// button all, active & complete
+const btnAll = document.querySelector('.btn1');
+const btnActive = document.querySelector('.btn2');
+const btnComplete = document.querySelector('.btn3');
+
+// variable alTodos
 let allTodos =
   JSON.parse(localStorage.getItem('todos', JSON.stringify('todos'))) || [];
 
-//event on submit
+// event on submit
 submit.addEventListener('click', handleInput);
 
 // event on input
@@ -24,7 +30,6 @@ function handleInput(event) {
     event.target.value = '';
     createUI(allTodos);
     localStorage.setItem('todos', JSON.stringify(allTodos));
-    console.log(allTodos);
   }
 }
 
@@ -39,9 +44,6 @@ function createUI(allTodos) {
     checkBox.setAttribute('id', 'checkbox');
     checkBox.setAttribute('data-checkid', index);
     checkBox.checked = todo.isDone;
-    // event on checkbox
-    checkBox.addEventListener('input', handleCheckBox);
-
     let inputList = document.createElement('input');
     inputList.setAttribute('type', 'text');
     inputList.setAttribute('id', 'text');
@@ -50,54 +52,87 @@ function createUI(allTodos) {
       inputList.style.textDecoration = 'line-through';
       inputList.style.color = '#6c1414';
     }
-    //event on inputList
-    inputList.addEventListener('input', handleInputlist);
-
     let deleteBtn = document.createElement('i');
-    deleteBtn.classList.add('fa-solid', 'fa-xmark');
+    deleteBtn.classList.add('fa-solid', 'fa-trash');
     deleteBtn.setAttribute('data-id', index);
-    // even on deleteBtn
-    deleteBtn.addEventListener('click', handleClickDelete);
     li.append(checkBox, inputList, deleteBtn);
     root.prepend(li);
 
+    // Event Delagation is used by addEventListener on parent element root to handle click event on checkBox & deleteButton
+    root.addEventListener('click', handleListClick);
+    // function handleListClick
+    function handleListClick(event) {
+      if (event.target.type === 'checkbox') {
+        handleCheckBox(event.target);
+      }
+      if (event.target.classList.contains('fa-trash')) {
+        handleClickDelete(event.target);
+      }
+    }
+
     // function handleCheckBox
-    function handleCheckBox(event) {
-      let id = event.target.dataset.checkid;
-      if (event.target.checked && id) {
+    function handleCheckBox(checkbox) {
+      let id = checkbox.dataset.checkid;
+      if (checkbox.checked && id) {
         allTodos[id].isDone = true;
-        inputList.style.textDecoration = 'line-through';
-        inputList.style.color = '#6c1414';
-        localStorage.setItem('todos', JSON.stringify(allTodos));
       } else {
         allTodos[id].isDone = false;
-        inputList.style.textDecoration = 'none';
-        inputList.style.color = 'white';
       }
       localStorage.setItem('todos', JSON.stringify(allTodos));
+      createUI(allTodos);
     }
-    //function handleInputlist
-    function handleInputlist(event, index) {
-      // function handleInputlist
-      function handleInputlist(event, index) {
-        console.log('index:', index);
-        console.log('allTodos:', allTodos);
-
-        // Check if allTodos[index] is defined before updating the 'name' property
-        if (allTodos[index]) {
-          allTodos[index].name = event.target.valu  e;
-          localStorage.setItem('todos', JSON.stringify(allTodos));
-          createUI(allTodos);
-        }
-      }
-    }
-    // function handleClick
-    function handleClickDelete() {
+    // function handleClickDelete
+    function handleClickDelete(deleteBtn) {
+      let index = deleteBtn.dataset.id;
       allTodos.splice(index, 1);
       localStorage.setItem('todos', JSON.stringify(allTodos));
       createUI(allTodos);
     }
+
+    //event on inputList
+    inputList.addEventListener('input', function (event) {
+      handleInputlist(event, index);
+    });
+    // function handleInputlist
+    function handleInputlist(event, index) {
+      if (allTodos[index]) {
+        allTodos[index].name = event.target.value;
+        localStorage.setItem('todos', JSON.stringify(allTodos));
+      }
+    }
   });
+}
+
+// event on btnAll
+btnAll.addEventListener('click', handleBtnAll);
+// function handleBtnAll
+function handleBtnAll() {
+  btnAll.style.backgroundColor = '#0ab6ab';
+  btnActive.style.backgroundColor = '#fff';
+  btnComplete.style.backgroundColor = '#fff';
+  createUI(allTodos);
+}
+
+// event on btnActive
+btnActive.addEventListener('click', handleBtnActive);
+// function handleBtnActive
+function handleBtnActive() {
+  let activeTodos = allTodos.filter((todo) => !todo.isDone);
+  btnActive.style.backgroundColor = '#ff5c5c';
+  btnAll.style.backgroundColor = '#fff';
+  btnComplete.style.backgroundColor = '#fff';
+  createUI(activeTodos);
+}
+
+// event on btnComlete
+btnComplete.addEventListener('click', handleBtnComplete);
+// function handleBtnComplete
+function handleBtnComplete() {
+  let completeTodos = allTodos.filter((todo) => todo.isDone);
+  btnComplete.style.backgroundColor = '#60ff8b';
+  btnActive.style.backgroundColor = '#fff';
+  btnAll.style.backgroundColor = '#fff';
+  createUI(completeTodos);
 }
 
 createUI(allTodos);
