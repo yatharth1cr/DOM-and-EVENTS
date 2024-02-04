@@ -12,6 +12,7 @@ const btnAll = document.querySelector('.btn1');
 const btnActive = document.querySelector('.btn2');
 const btnComplete = document.querySelector('.btn3');
 
+
 // variable alTodos
 let allTodos =
   JSON.parse(localStorage.getItem('todos', JSON.stringify('todos'))) || [];
