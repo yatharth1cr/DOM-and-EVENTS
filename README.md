@@ -3,8 +3,7 @@
 3. Assignment-FlipBox
 4. Assignment-Calculator
 5. Assignment-Counter-app
-6. todo-app
-7. Assignment-Rock_Paper_Scissor-Game
-8. Assignment-Form-page-handlingInputElement
-9. Assignment-Validation-Form
-10. Assignment-Movie-watchlist
+6. Assignment-Rock_Paper_Scissor-Game
+7. Assignment-Form-page-handlingInputElement
+8. Assignment-Validation-Form
+9. Assignment-Movie-watchlist
